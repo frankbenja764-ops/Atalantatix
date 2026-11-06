@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AtlantaTix — football and sports ticket information and booking.">
+<title>AtlantaTix | Matchday starts here</title>
+<style>
+:root{--navy:#071426;--panel:#10233d;--panel2:#142b49;--gold:#f4bd4f;--white:#f7f9fc;--muted:#a9b7c9;--line:#29415f;--green:#35c58a}
+*{box-sizing:border-box}body{margin:0;background:var(--navy);color:var(--white);font-family:Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#08182c;position:sticky;top:0;z-index:5}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:24px;font-weight:900;letter-spacing:-1px}.brand span{color:var(--gold)}
+.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}
+.pill{border:1px solid #6b592f;color:var(--gold);padding:9px 14px;border-radius:30px;font-size:13px}
+.hero{padding:66px 0 52px;background:radial-gradient(ellipse at 80% 15%,#1d4265 0,transparent 43%),linear-gradient(120deg,#0a1b31,#0d2945)}
+.kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.02;max-width:680px;margin:15px 0}
+.hero p{color:var(--muted);max-width:570px;line-height:1.7}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{border:0;border-radius:10px;padding:13px 19px;font-weight:800;cursor:pointer;background:var(--gold);color:#172235}
+.btn.secondary{background:transparent;border:1px solid var(--line);color:white}
+.trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;color:#c3cfdd;font-size:13px}
+section{padding:48px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px}
+h2{font-size:28px;margin:0 0 8px}.sub{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.matchtop{padding:20px;background:linear-gradient(135deg,#18385a,#10233d);min-height:145px;display:flex;align-items:center;justify-content:space-between}
+.team{text-align:center;width:38%}.crest{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#e8edf5;color:#10233d;font-weight:900;font-size:17px;margin:0 auto 8px}
+.team b{font-size:13px}.vs{color:var(--gold);font-weight:900;font-size:12px}
+.cardbody{padding:18px}.tag{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-weight:800}
+.meta{color:var(--muted);font-size:13px;line-height:1.8;margin:9px 0 15px}
+.price{font-size:20px;font-weight:900}.price small{font-size:12px;color:var(--muted);font-weight:500}
+.cardfoot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cardfoot .btn{padding:10px 13px;font-size:13px}
+.notice{background:#102b35;border:1px solid #27614f;color:#c7f4e2;border-radius:12px;padding:15px 17px;font-size:13px;line-height:1.6;margin-top:22px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}.num{color:var(--gold);font-weight:900;font-size:13px}.step h3{margin:9px 0}.step p{font-size:13px;color:var(--muted);line-height:1.6}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+.modal{display:none;position:fixed;inset:0;background:#020914dd;z-index:10;align-items:center;justify-content:center;padding:16px}.modal.open{display:flex}
+.dialog{background:#10233d;border:1px solid var(--line);border-radius:18px;padding:24px;width:min(460px,100%);max-height:90vh;overflow:auto}
+.dialog h2{font-size:23px}.field{display:block;margin:14px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}
+input,select{width:100%;padding:12px;border-radius:9px;border:1px solid var(--line);background:#091a2e;color:white;font:inherit}
+.total{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);margin-top:14px;font-weight:800}
+.close{float:right;background:none;border:0;color:white;font-size:22px;cursor:pointer}
+.smallprint{font-size:11px;color:var(--muted);line-height:1.6}
+@media(max-width:800px){.grid,.how{grid-template-columns:1fr 1fr}.navlinks{display:none}}
+@media(max-width:540px){.grid,.how{grid-template-columns:1fr}.hero{padding:48px 0}.sectionhead{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#">Atlanta<span>Tix</span></a>
+  <nav class="navlinks"><a href="#matches">Matches</a><a href="#how">How it works</a><a href="#organisers">For organisers</a><a href="#support">Support</a></nav>
+  <a class="pill" href="#matches">Explore tickets ↗</a>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div class="kicker">Eldoret sports ticketing</div>
+  <h1>Be there when<br>the game happens.</h1>
+  <p>Discover football and sporting events in Eldoret and the wider Uasin Gishu region, review ticket options and get ready for matchday with AtlantaTix.</p>
+  <div class="actions"><a class="btn" href="#matches">Browse matches</a><a class="btn secondary" href="#how">How booking works</a></div>
+  <div class="trust"><span>✓ Clear ticket prices</span><span>✓ Mobile-friendly booking</span><span>✓ Starting in Eldoret, Kenya</span></div>
+</div></section>
+<section id="matches"><div class="wrap">
+  <div class="sectionhead"><div><div class="kicker">Choose your next game</div><h2>Featured events in Eldoret</h2><div class="sub">Eldoret launch area • These are demo listings only. Add real fixtures after confirming dates, venues, ticket allocations and selling permission with each organiser.</div></div></div>
+  <div class="grid">
+    <article class="card"><div class="matchtop"><div class="team"><div class="crest">A</div><b>HOME TEAM</b></div><div class="vs">VS</div><div class="team"><div class="crest">B</div><b>AWAY TEAM</b></div></div><div class="cardbody"><div class="tag">Eldoret football • Demo listing</div><div class="meta">Date: To be confirmed<br>Venue: Eldoret • To be confirmed</div><div class="cardfoot"><div class="price">KSh 1,000 <small>/ from</small></div><button class="btn" onclick="openBooking('Eldoret Football Match — Demo',1000)">View tickets</button></div></div></article>
+    <article class="card"><div class="matchtop"><div class="team"><div class="crest">C</div><b>HOME TEAM</b></div><div class="vs">VS</div><div class="team"><div class="crest">D</div><b>AWAY TEAM</b></div></div><div class="cardbody"><div class="tag">Eldoret football • Demo listing</div><div class="meta">Date: To be confirmed<br>Venue: Eldoret • To be confirmed</div><div class="cardfoot"><div class="price">KSh 1,500 <small>/ from</small></div><button class="btn" onclick="openBooking('Eldoret League Match — Demo',1500)">View tickets</button></div></div></article>
+    <article class="card"><div class="matchtop"><div class="team"><div class="crest">E</div><b>TEAM RED</b></div><div class="vs">VS</div><div class="team"><div class="crest">F</div><b>TEAM BLUE</b></div></div><div class="cardbody"><div class="tag">Eldoret sports • Demo listing</div><div class="meta">Date: To be confirmed<br>Venue: Eldoret • To be confirmed</div><div class="cardfoot"><div class="price">KSh 800 <small>/ from</small></div><button class="btn" onclick="openBooking('Eldoret Sports Event — Demo',800)">View tickets</button></div></div></article>
+  </div>
+  <div class="notice"><b>Preview mode:</b> These are sample events and prices, not real fixtures or tickets. No payment is collected on this demo page. Only publish events after confirming the organiser, venue, dates, ticket allocation and permission to sell.</div>
+</div></section>
+<section id="how"><div class="wrap"><div class="kicker">Simple and transparent</div><h2>How it should work</h2><div class="how">
+  <div class="step"><div class="num">01 / SELECT</div><h3>Choose a match</h3><p>Review the confirmed event details, seating category, price and ticket terms.</p></div>
+  <div class="step"><div class="num">02 / PAY</div><h3>Pay with M-Pesa</h3><p>At launch, connect a verified M-Pesa Daraja checkout on a secure server. Never ask customers to share their M-Pesa PIN.</p></div>
+  <div class="step"><div class="num">03 / RECEIVE</div><h3>Get your ticket</h3><p>After payment confirmation from the payment provider, issue a unique ticket and QR code that venue staff can validate.</p></div>
+</div></div></section>
+<section id="organisers"><div class="wrap">
+  <div class="kicker">For event organisers</div><h2>Sell through AtlantaTix</h2>
+  <p class="sub" style="max-width:720px;line-height:1.8">AtlantaTix is an independent ticket sales partner for approved sports events in Eldoret and Uasin Gishu. Organisers remain responsible for the event; AtlantaTix lists and sells the authorised ticket allocation under an agreed written arrangement.</p>
+  <div class="how" style="margin-top:20px">
+    <div class="step"><div class="num">01 / SUBMIT</div><h3>Share event details</h3><p>Provide organiser contacts, event date, venue, ticket categories, prices and available ticket allocation.</p></div>
+    <div class="step"><div class="num">02 / VERIFY</div><h3>Confirm authorisation</h3><p>AtlantaTix checks the organiser's identity, event details and written permission to sell tickets before publishing.</p></div>
+    <div class="step"><div class="num">03 / SETTLE</div><h3>Agree payments</h3><p>Before sales begin, agree in writing on fees or commission, payment collection, reporting, settlement timing, refunds and cancellations.</p></div>
+  </div>
+  <div class="step" style="margin-top:16px">
+    <div class="num">ATLANTATIX COMMISSION</div>
+    <h3>KSh 1,000 per ticket sold</h3>
+    <p>Proposed standard agent commission: AtlantaTix retains KSh 1,000 from each successfully paid ticket, and the balance is payable to the organiser under the signed agreement. Confirm the ticket price, any applicable fees, refunds and settlement process with each organiser before sales open.</p>
+  </div>
+  <div class="notice"><b>Trust and safety:</b> AtlantaTix must not advertise an event as confirmed or accept customer money until the organiser and ticket allocation are verified and the payment process is live. Never request or store a customer's M-Pesa PIN.</div>
+</div></section>
+<section id="support"><div class="wrap"><div class="kicker">Customer confidence</div><h2>Clear information. Reliable entry.</h2><p class="sub" style="max-width:720px;line-height:1.8">Before launch, publish your registered business or proprietor details, customer support phone and email, privacy notice, refund and cancellation policy, organiser agreements, and a secure ticket validation process. Clearly identify AtlantaTix as an independent ticketing agent, not the event organiser or venue owner.</p></div></section>
+</main>
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span>© 2026 AtlantaTix. All rights reserved.</span><span>Eldoret, Uasin Gishu, Kenya • Independent ticket sales agent; no club, league, federation or venue affiliation is implied.</span></div></footer>
+<div class="modal" id="booking"><div class="dialog">
+  <button class="close" onclick="closeBooking()" aria-label="Close">×</button><div class="kicker">Booking preview</div><h2 id="eventName">Choose tickets</h2>
+  <div class="field"><label for="ticketType">Ticket category</label><select id="ticketType"><option value="1000">Regular — KSh 1,000</option><option value="2000">VIP — KSh 2,000</option></select></div>
+  <div class="field"><label for="quantity">Number of tickets</label><input id="quantity" type="number" min="1" max="10" value="1" oninput="updateTotal()"></div>
+  <div class="total"><span>Estimated total</span><span id="total">KSh 1,000</span></div>
+  <div class="notice" style="margin-top:16px">
+    <b>M-Pesa payments:</b>
+    <p style="margin:8px 0 0">Online payments are not available yet. Please do not send money to any number claiming to represent AtlantaTix. Payment details will be published only after the official business payment channel is verified.</p>
+  </div>
+  <button class="btn" style="width:100%;margin-top:14px" onclick="demoNotice()">M-Pesa checkout not active yet</button>
+  <p class="smallprint">This is a website preview only. It does not accept or verify payments, collect transaction codes, or issue tickets. Real events and organiser authorisation must be confirmed before ticket sales begin.</p>
+</div></div>
+<script>
+let basePrice=1000;
+function openBooking(name,price){basePrice=price;document.getElementById('eventName').textContent=name;const sel=document.getElementById('ticketType');sel.innerHTML=`<option value="${price}">Regular — KSh ${price.toLocaleString()}</option><option value="${price*2}">VIP — KSh ${(price*2).toLocaleString()}</option>`;document.getElementById('quantity').value=1;document.getElementById('booking').classList.add('open');updateTotal()}
+function closeBooking(){document.getElementById('booking').classList.remove('open')}
+function updateTotal(){let p=Number(document.getElementById('ticketType').value);let q=Math.max(1,Math.min(10,Number(document.getElementById('quantity').value)||1));document.getElementById('quantity').value=q;document.getElementById('total').textContent='KSh '+(p*q).toLocaleString()}
+document.getElementById('ticketType').addEventListener('change',updateTotal);
+function demoNotice(){alert('AtlantaTix preview only: M-Pesa checkout is not active. Do not send money; no ticket has been purchased.');}
+document.getElementById('booking').addEventListener('click',e=>{if(e.target.id==='booking')closeBooking()});
+</script>
+</body></html>
